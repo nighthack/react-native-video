@@ -175,10 +175,11 @@ Add the `ReactVideoPackage` class to your list of exported packages.
 ```java
 @Override
 protected List<ReactPackage> getPackages() {
-    return Arrays.asList(
-            new MainReactPackage(),
-            new ReactVideoPackage()
-    );
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  packages.add(new ReactVideoPackage());
+  return packages;
 }
 ```
 </details>
